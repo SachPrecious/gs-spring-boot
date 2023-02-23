@@ -9,13 +9,12 @@ trigger:
 variables:
 
   # Azure Resource Manager connection created during pipeline creation
-  azureSubscription: '4c8e7db9-7472-409e-8b5a-49c63cab73e1'
+  azureSubscription: '9bded133-ab39-4f5f-a522-43217f171cec'
   
   # Web app name
   webAppName: 'java-spring-boot'
 
-  # Agent VM image name
-  vmImageName: 'ubuntu-latest'
+
 
 stages:
 - stage: Build
@@ -23,8 +22,7 @@ stages:
   jobs:
   - job: MavenPackageAndPublishArtifacts
     displayName: Maven Package and Publish Artifacts
-    pool:
-      vmImage: $(vmImageName)
+    pool: myUbuntuAgent      
     
     steps:
     - task: Maven@3
